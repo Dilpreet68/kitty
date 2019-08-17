@@ -1,0 +1,157 @@
+
+<br>
+<p class="text-center"><font text-align="centre" color="brown" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"><h2>ADD PRODUCT</h2></font></p>
+<div style="padding-left: 160px; padding-right: 160px">
+    <div style="background-color: blanchedalmond">
+<div class="border border-danger"><br>
+
+<br>
+<form #empForm=ngForm (ngSubmit)="addData()">
+<div class="form-group row">
+        <label for="inputId" class="col-sm-2 col-form-label">&nbsp;&nbsp;Product ID</label>
+            <div class="col-sm-10" style="padding-left: 50px; padding-right: 50px;">
+            <input type="text" class="form-control" name="id" id="eid" [(ngModel)]="proId" #idControl="ngModel" required  >
+            <span  class="alert alert-danger" role="alert" *ngIf="idControl.touched && idControl.invalid">ID should be filled</span>    
+        </div>
+            </div>
+        <div class="form-group row">
+                <label for="inputName" class="col-sm-2 col-form-label">&nbsp;&nbsp;Product Name</label>
+                    <div class="col-sm-10" style="padding-left: 50px; padding-right: 50px;">
+                    <input type="text" class="form-control" [(ngModel)]="proName" id="ename" name="nname" #nameControl="ngModel" required>
+                    <span  class="alert alert-danger" role="alert" *ngIf="nameControl.touched && nameControl.invalid">Name should be filled</span>    
+                </div>
+        </div>
+        <div class="form-group row">
+                <label for="inputCost" class="col-sm-2 col-form-label">&nbsp;&nbsp;Product Cost</label>
+                    <div class="col-sm-10" style="padding-left: 50px; padding-right: 50px;">
+                    <input type="text" class="form-control" [(ngModel)]="proCost" id="esalary" name="salary" #salaryControl="ngModel" required>
+                    <span  class="alert alert-danger" role="alert" *ngIf="salaryControl.touched && salaryControl.invalid">Cost should be filled</span>
+                </div>
+        </div>
+       
+        <fieldset class="form-group">
+        <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">&nbsp;&nbsp;Product Online</legend>
+        <div class="col-sm-10" style="padding-left: 50px; padding-right: 50px;">
+        <div class="form-check" >
+        <input class="form-check-input" type="radio" [(ngModel)]="proOnline" name="online" value="YES" id="on1" #onlineControl="ngModel" required >
+        <label class="form-check-label" for="on1">
+        Yes
+        </label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" [(ngModel)]="proOnline" name="online" value="NO" id="on2" #onlineControl="ngModel" required>
+        <label class="form-check-label" for="on2">
+        No
+        </label>
+        </div>
+        </div>
+        </div>
+        <span class="alert alert-danger" role="alert" *ngIf="onlineControl.touched && onlineControl.invalid">It should be Selected</span> 
+        </fieldset>
+         
+        <label class="form-check-label" for="check1">
+        &nbsp;&nbsp;Product Category
+        </label>
+        <div style="padding-left: 200px; padding-right: 39px;">
+        <select class="custom-select" id="ecategory" name="category" [(ngModel)]="proCate" #cateControl="ngModel" required>
+         <option value="A Item">A Item</option>
+        <option value="B Item">B Item</option>
+        <option value="C Item">C Item</option>
+        </select>
+        <span class="alert alert-danger" role="alert" *ngIf="cateControl.touched && cateControl.invalid">It should be Selected</span> 
+    </div>      
+        <br><br>
+        <div class="form-group row">
+        <div class="col-sm-2">&nbsp;&nbsp;Available in Store</div>
+        <div class="col-sm-10" style="padding-left: 50px; padding-right: 50px;">
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="check1" name="Course" [(ngModel)]="proStore1" value="Big Bazaar" #storeControl="ngModel" required >
+        <label class="form-check-label" for="check1">
+        Big Bazaar
+        </label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="check2" name="Course" [(ngModel)]="proStore2" value="Dmart" #storeControl="ngModel" required >
+        <label class="form-check-label" for="check2">
+        Dmart
+        </label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="check3" name="Course" [(ngModel)]="proStore3" value="Reliance" #storeControl="ngModel" required >
+        <label class="form-check-label" for="check3">
+        Reliance
+        </label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="check4" name="Course" [(ngModel)]="proStore4" value="Mega Store" #storeControl="ngModel" required>
+        <label class="form-check-label" for="check4">
+        Mega Store
+        </label>
+        </div>
+        <span class="alert alert-danger" role="alert" *ngIf="storeControl.touched && storeControl.invalid">It should be Selected</span> 
+        </div>
+        </div>
+        <br>
+        &nbsp;
+        &nbsp;
+<input type="reset" class="btn btn-success" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RESET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">       
+                 &nbsp;
+                  &nbsp;
+                 
+                  
+<input type="submit" class="btn btn-primary " value="ADD PRODUCT" [disabled]="empForm.invalid">
+                  &nbsp;
+           
+                        
+                        
+                 
+                   
+                      
+                            
+                            
+
+                     
+
+</form>
+
+</div>
+</div>  </div>    
+
+<br><br>
+
+<p class="text-center"><font text-align="centre" color="brown" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"><h2>SHOW PRODUCT</h2></font></p>
+<br>
+
+<table border='1'  align="center" style="background-color:pink">
+    <tr>
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;Product Id&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;Product Name&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;Product Cost&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;Product Online&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;Product Category&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;Product Available Stores&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    </tr>
+    
+    <tr *ngFor="let data of proAll;let i=index">
+        <td>
+            {{data.proId}}
+        </td>
+        <td>
+            {{data.proName}}
+        </td>
+        <td>
+            {{data.proCost}}
+        </td>
+        <td>
+            {{data.proOnline}}
+        </td>
+        <td>
+            {{data.proCate}}
+        </td>
+        <td>
+            {{data.proStore1}}
+        </td>
+        
+    </tr>
+</table>
